@@ -1,0 +1,56 @@
+{
+	"name": "change-case",
+	"displayName": "changecase",
+	"description": "change case",
+	"version": "1.0.0",
+	"publisher": "narocai",
+	"engines": {
+		"vscode": "^1.35.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.uppercase",
+		"onCommand:extension.lowercase"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.uppercase",
+				"title": "Uppercase the selection"
+			},
+			{
+				"command": "extension.lowercase",
+				"title": "Lowercase the selecion"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.uppercase",
+				"key": "ctrl+alt+u",
+				"mac": "alt+cmd+u"
+			},
+			{
+				"command": "extension.lowercase",
+				"key": "ctrl+alt+l",
+				"mac": "alt+cmd+l"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "yarn run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"tslint": "^5.12.1",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	}
+}
